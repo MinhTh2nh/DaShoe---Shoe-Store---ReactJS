@@ -1,0 +1,33 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Nike Airforce 1",
+      "price": "3400,000d",
+      "type": "walking",
+      "style": "street",
+      "brand": "Nike",
+      "supplier": "C001"
+    },
+    {
+      "name": "Nike Airfore 1",
+      "price": "3200000",
+      "type": "Street",
+      "style": "Run",
+      "brand": "nike",
+      "supplier": "C002",
+      "id": 2
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Nguyen Van Tan",
+      "phone": "0345944241",
+      "email": "vantaan2002@gmail.com",
+      "birth": "23/03/2002",
+      "address": "BR-VT",
+      "gender": "male"
+    }
+  ]
+}

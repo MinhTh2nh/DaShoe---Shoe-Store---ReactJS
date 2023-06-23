@@ -1,0 +1,16 @@
+database:
+  host: "localhost"
+  port: 3306
+  database: "shoe_store"
+  username: "username"
+  password: "password"
+
+servers:
+  api:
+    port: 2000
+
+koa:
+  keys: [ "random string here" ]
+  session:
+    domain: "localhost"
+    max_age: 86400000

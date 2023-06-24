@@ -8,21 +8,15 @@ const Bar = () => {
   const [totalProductsSold, setTotalProductsSold] = useState(0);
   const [barChartData, setBarChartData] = useState([]);
 
+  const PUBLIC_API_URL = 'http://localhost:2000';
+
   useEffect(() => {
     // Fetch invoices and update the state
-    fetch('http://localhost:3000/invoices')
+    fetch(`${PUBLIC_API_URL}/api/invoices/chart`)
       .then((response) => response.json())
       .then((data) => {
-        setInvoices(data);
-        // Fetch products and update the state
-        fetch('http://localhost:3000/product')
-          .then((response) => response.json())
-          .then((data) => {
-            setProducts(data);
-          })
-          .catch((error) => {
-            console.error('Error fetching products:', error);
-          });
+        setInvoices(data.invoices);
+        setProducts(data.products);
       })
       .catch((error) => {
         console.error('Error fetching invoices:', error);
@@ -49,29 +43,22 @@ const Bar = () => {
       invoice.products.forEach((product) => {
         const { type } = product;
         const yearType = `${year}-${type}`;
-        counts[yearType] = counts[yearType]
-          ? counts[yearType] + product.quantity
-          : product.quantity;
+        counts[yearType] = counts[yearType] ? counts[yearType] + product.quantity : product.quantity;
       });
       return counts;
     }, {});
 
     // Prepare data for bar chart
-    const calculatedBarChartData = Object.entries(countsByYearAndType).map(
-      ([yearType, count]) => {
-        const [year, type] = yearType.split('-');
-        return {
-          year,
-          type,
-          count,
-        };
-      }
-    );
+    const calculatedBarChartData = Object.entries(countsByYearAndType).map(([yearType, count]) => {
+      const [year, type] = yearType.split('-');
+      return {
+        year,
+        type,
+        count,
+      };
+    });
 
-    const calculatedTotalProductsSold = Object.values(countsByYearAndType).reduce(
-      (total, count) => total + count,
-      0
-    );
+    const calculatedTotalProductsSold = Object.values(countsByYearAndType).reduce((total, count) => total + count, 0);
 
     setBarChartData(calculatedBarChartData);
     setTotalProductsSold(calculatedTotalProductsSold);
@@ -79,16 +66,10 @@ const Bar = () => {
 
   return (
     <Box>
-      <Box
-        width="fit-content"
-        padding="10px"
-        backgroundColor="#d34555"
-        fontSize="15px"
-        fontWeight="400"
-      >
+      <Box width="fit-content" padding="10px" backgroundColor="#d34555" fontSize="15px" fontWeight="400">
         Total products sold: {totalProductsSold}
       </Box>
-      <Box height="50vh" display="flex" justifyContent="center" backgroundColor= "#D8EDED">
+      <Box height="50vh" display="flex" justifyContent="center" backgroundColor="#D8EDED">
         <BarChart data={barChartData} />
       </Box>
     </Box>

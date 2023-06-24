@@ -1,4 +1,5 @@
 import { controller } from "@/services";
+import { HttpStatusCode } from "@/enums";
 import type { Context } from "koa";
 
 interface AddInvoiceRequestBody {
@@ -24,6 +25,178 @@ export const handleGetInvoice = async (ctx: Context): Promise<void> => {
 
   ctx.status = status;
   ctx.body = { ...data };
+};
+
+export const handleGetInvoicesChartData = async (ctx: Context): Promise<void> => {
+  ctx.status = HttpStatusCode.Ok;
+  ctx.body = {
+    "products": [
+      {
+        "name": "Nike Airfore 1",
+        "price": "120",
+        "type": "male",
+        "style": "Trainning",
+        "brand": "nike",
+        "size": "35",
+        "color": "black",
+        "id": 1
+      },
+      {
+        "name": "Nike Airfore 1",
+        "price": "120",
+        "type": "female",
+        "style": "Trainning",
+        "brand": "new balance",
+        "size": "45",
+        "color": "grey",
+        "id": 2
+      },
+      {
+        "name": "Nike Air Force 1",
+        "price": "120",
+        "type": "unisex",
+        "style": "Streetwear",
+        "brand": "adidas",
+        "size": "45",
+        "color": "orange",
+        "id": 3
+      }
+    ],
+    "invoices": [
+      {
+        "id": 1,
+        "empNo": "E001",
+        "status": "Pending",
+        "date": "2022-03-23",
+        "payment": "Unpaid",
+        "customer": "C001",
+        "products": [
+          {
+            "id": 1,
+            "name": "Nike Airforce 1",
+            "quantity": 2,
+            "price": 10.99,
+          },
+          {
+            "id": 2,
+            "name": "Nike Airforce 1",
+            "quantity": 1,
+            "price": 19.99,
+          },
+        ],
+        "total": 1,
+      },
+      {
+        "id": 2,
+        "empNo": "E002",
+        "status": "Pending",
+        "date": "2023-06-14",
+        "payment": "Unpaid",
+        "customer": "C002",
+        "products": [
+          {
+            "id": 1,
+            "name": "Nike Airforce 1",
+            "quantity": 2,
+            "price": 10.99,
+          },
+          {
+            "id": 2,
+            "name": "Nike Airforce 1",
+            "quantity": 1,
+            "price": 19.99,
+          },
+        ],
+        "total": 1,
+      },
+      {
+        "id": 3,
+        "empNo": "E003",
+        "status": "Pending",
+        "date": "2020-08-10",
+        "payment": "Unpaid",
+        "customer": "C003",
+        "products": [
+          {
+            "id": 1,
+            "name": "Nike Airforce 1",
+            "quantity": 1,
+            "price": 19.99,
+          },
+        ],
+        "total": 1,
+      },
+      {
+        "id": 4,
+        "empNo": "E004",
+        "status": "Pending",
+        "date": "2021-11-28",
+        "payment": "Unpaid",
+        "customer": "C004",
+        "products": [
+          {
+            "id": 1,
+            "name": "Nike Airforce 1",
+            "quantity": 2,
+            "price": 10.99,
+          },
+          {
+            "id": 3,
+            "name": "Nike Air Force 1",
+            "quantity": 1,
+            "price": 19.99,
+          },
+        ],
+        "total": 1,
+      },
+      {
+        "id": 5,
+        "empNo": "E003",
+        "status": "Pending",
+        "date": "2022-08-10",
+        "payment": "Unpaid",
+        "customer": "C003",
+        "products": [
+          {
+            "id": 2,
+            "name": "Nike Airforce 1",
+            "quantity": 2,
+            "price": 10.99,
+          },
+          {
+            "id": 3,
+            "name": "Nike Air Force 1",
+            "quantity": 1,
+            "price": 19.99,
+          },
+        ],
+        "total": 1,
+      },
+      {
+        "id": 6,
+        "empNo": "E003",
+        "status": "Pending",
+        "date": "2023-08-10",
+        "payment": "Unpaid",
+        "customer": "C003",
+        "products": [
+          {
+            "id": 2,
+            "name": "Nike Airforce 1",
+            "quantity": 2,
+            "price": 10.99,
+          },
+          {
+            "id": 1,
+            "name": "Nike Airforce 1",
+            "quantity": 1,
+            "price": 19.99,
+          },
+        ],
+        "total": 1,
+      },
+    ],
+  };
 };
 
 export const handleAddInvoice = async (ctx: Context): Promise<void> => {

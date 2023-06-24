@@ -2,15 +2,17 @@ import { Box } from '@mui/material';
 import PieChart from '../../components/pieChart';
 import { React, useState, useEffect } from 'react';
 
+  const PUBLIC_API_URL = 'http://localhost:2000';
+
 const Pie = () => {
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
     // Fetch the invoices and update the state
-    fetch('http://localhost:3000/invoices')
+    fetch(`${PUBLIC_API_URL}/api/invoices/chart`)
       .then((response) => response.json())
       .then((data) => {
-        setInvoices(data);
+        setInvoices(data.invoices);
       })
       .catch((error) => {
         console.error('Error:', error);

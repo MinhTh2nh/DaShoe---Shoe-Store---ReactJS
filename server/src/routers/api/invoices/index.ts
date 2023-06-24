@@ -2,6 +2,7 @@ import Router from "@koa/router";
 import {
   handleGetInvoices,
   handleGetInvoice,
+  handleGetInvoicesChartData,
   handleAddInvoice,
   handleUpdateInvoice,
   handleDeleteInvoice,
@@ -12,6 +13,7 @@ const router = new Router({
 });
 
 router.get("get_invoices", "/", handleGetInvoices);
+router.get("get_invoices_chart_data", "/chart", handleGetInvoicesChartData);
 router.get("get_invoice", "/:id", handleGetInvoice);
 router.post("add_invoice", "/", handleAddInvoice);
 router.put("update_invoice", "/:id", handleUpdateInvoice);

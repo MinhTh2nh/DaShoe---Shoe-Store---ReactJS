@@ -1,4 +1,4 @@
-![image](https://github.com/MinhTh2nh/DaShoe---Shoe-Store---ReactJS/assets/96544543/7c29b79a-6bc1-4a2c-a091-f962b85df2e8)![image](https://github.com/MinhTh2nh/DaShoe---Shoe-Store---ReactJS/assets/96544543/9753c8f7-9534-4331-bbd6-5ee84424554c)#Running DB.json
+#Running DB.json
 $ json-server --watch db.json
 
 
@@ -20,7 +20,7 @@ Insert gif or link to demo
 
 ## :checkered_flag: Illustrations
  
-Here are some Illustration of App Screens
+Here are some Illustration of Screens
 
 ![image](https://github.com/MinhTh2nh/DaShoe---Shoe-Store---ReactJS/assets/96544543/adec67ce-c77f-4f8e-815e-2c9199ef0fe0)
 ![image](https://github.com/MinhTh2nh/DaShoe---Shoe-Store---ReactJS/assets/96544543/a8f8e603-492e-406e-afc2-6a1689b53b13)

@@ -11,7 +11,6 @@ This is the final project of the System Analysis and Design course of the Inform
 
 - Nguyễn Minh Thành
 - Nguyễn Văn Tân
-- Quách Vinh Quang
 - Tống Trường Thịn
 ## Demo
 
